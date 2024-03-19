@@ -18,6 +18,7 @@ export type FoodListItemProps = {
     nrOfVotes: number;
     rank: number;
     qrCode: string;
+    type: string;
     ranking: RestaurantData
     expanded: boolean;
     handleChange: (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => void

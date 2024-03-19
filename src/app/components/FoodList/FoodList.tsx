@@ -18,7 +18,16 @@ export const FoodList = (props: FoodListProps) => {
     return (
         <div className="mt-4 w-full flex gap-3 flex-col">
             {sortRankings.map((ranking, i) =>
-                <FoodListItem expanded={expanded === `panel${i + 1}`} handleChange={handleChange} key={ranking.osm} qrCode={ranking.link} rank={i + 1} ranking={ranking} nrOfVotes={ranking.count} />
+                <FoodListItem
+                    expanded={expanded === `panel${i + 1}`}
+                    handleChange={handleChange}
+                    key={ranking.osm}
+                    qrCode={ranking.link}
+                    rank={i + 1}
+                    ranking={ranking}
+                    nrOfVotes={ranking.count}
+                    type={ranking.type}
+                />
             )}
         </div>
     )

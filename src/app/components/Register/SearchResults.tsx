@@ -6,6 +6,7 @@ import { useFormStatus } from "react-dom"
 import LinearProgress from '@mui/material/LinearProgress';
 import { useRouter } from 'next/navigation'
 import { SearchResult } from '@/app/types';
+import { FoodIcon } from '../Shared/FoodIcon';
 
 export const SearchResults = ({ results, search }: { results: SearchResult[] | null, search: string }) => {
     const { pending } = useFormStatus();
@@ -43,18 +44,23 @@ export const SearchResults = ({ results, search }: { results: SearchResult[] | n
                 </div>
             )}
             {results?.length > 0 && (
-                <List className='bg-black pt-0'>
+                <List className="bg-black pt-0">
                     {results.map((result) => {
-                        const { osm_id, name, address } = result;
+                        const { osm_id, name, address, type } = result;
                         const { road, house_number, city_district } = address;
+                        {/* TODO: Add icon based on restaurant type */ }
                         return (
                             <ListItem
                                 className='bg-white p-0 text-black rounded-lg my-2'
                                 key={osm_id}>
                                 <ListItemButton className='border border-gray-100 hover:border-gray-300' onClick={() => postRestaurant(result)}>
-                                    <div className="flex flex-col p-2">
-                                        <ListItemText primary={name} />
-                                        <ListItemText primary={"Address: " + road + " " + (house_number ? house_number : "") + " - " + city_district} />
+                                    {/* TODO: Add icon based on restaurant type */}
+                                    <div className='flex flex-row items-center p-2'>
+                                        <div className="flex flex-col">
+                                            <ListItemText primary={name} />
+                                            <ListItemText primary={"Address: " + road + " " + (house_number ? house_number : "") + " - " + city_district} />
+                                        </div>
+                                        <FoodIcon type={type} />
                                     </div>
                                 </ListItemButton>
                             </ListItem>

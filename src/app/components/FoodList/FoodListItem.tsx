@@ -7,9 +7,10 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from "@mui/material/Typography";
 import QRCode from "react-qr-code";
 import { FoodListItemProps } from "../../types";
+import { FoodIcon } from '../Shared/FoodIcon';
 
 export const FoodListItem = (props: FoodListItemProps) => {
-    const { nrOfVotes, rank, qrCode, ranking, expanded, handleChange } = props;
+    const { nrOfVotes, rank, qrCode, ranking, type, expanded, handleChange } = props;
 
     return (
         <Accordion className="bg-white text-black rounded-md" expanded={expanded} onChange={handleChange(`panel${rank}`)}>
@@ -18,6 +19,7 @@ export const FoodListItem = (props: FoodListItemProps) => {
                 aria-controls={`panel-${rank}d-content`} id={`panel-${rank}d-header`}
                 classes={{ content: "flex flex-row gap-x-2 items-center" }}
             >
+                <FoodIcon type={type} />
                 <Typography variant="subtitle1">#{rank} - </Typography>
                 <Typography variant="caption">{ranking.name} - {ranking.address.road}</Typography>
             </AccordionSummary>
