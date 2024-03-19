@@ -1,0 +1,1 @@
+export const fetchLocationFilters = ["restaurant", "fast_food", "cafe", "pub", "bar", "internet_cafe"]
