@@ -42,25 +42,27 @@ export const SearchResults = ({ results, search }: { results: SearchResult[] | n
                     <LinearProgress sx={{ height: 5 }} />
                 </div>
             )}
-            <List className='bg-black'>
-                {results?.map((result) => {
-                    const { osm_id, name, address } = result;
-                    const { road, house_number, city_district } = address;
-                    return (
-                        <ListItem
-                            className='bg-white p-0 text-black rounded-lg my-2'
-                            key={osm_id}>
-                            <ListItemButton className='border border-gray-100 hover:border-gray-300' onClick={() => postRestaurant(result)}>
-                                <div className="flex flex-col p-2">
-                                    <ListItemText primary={name} />
-                                    <ListItemText primary={"Address: " + road + " " + (house_number ? house_number : "") + " - " + city_district} />
-                                </div>
-                            </ListItemButton>
-                        </ListItem>
-                    )
-                }
-                )}
-            </List>
+            {results?.length > 0 && (
+                <List className='bg-black pt-0'>
+                    {results.map((result) => {
+                        const { osm_id, name, address } = result;
+                        const { road, house_number, city_district } = address;
+                        return (
+                            <ListItem
+                                className='bg-white p-0 text-black rounded-lg my-2'
+                                key={osm_id}>
+                                <ListItemButton className='border border-gray-100 hover:border-gray-300' onClick={() => postRestaurant(result)}>
+                                    <div className="flex flex-col p-2">
+                                        <ListItemText primary={name} />
+                                        <ListItemText primary={"Address: " + road + " " + (house_number ? house_number : "") + " - " + city_district} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                        )
+                    }
+                    )}
+                </List>
+            )}
         </>
 
     )
