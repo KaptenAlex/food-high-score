@@ -48,13 +48,11 @@ export const SearchResults = ({ results, search }: { results: SearchResult[] | n
                     {results.map((result) => {
                         const { osm_id, name, address, type } = result;
                         const { road, house_number, city_district } = address;
-                        {/* TODO: Add icon based on restaurant type */ }
                         return (
                             <ListItem
                                 className='bg-white p-0 text-black rounded-lg my-2'
                                 key={osm_id}>
                                 <ListItemButton className='border border-gray-100 hover:border-gray-300' onClick={() => postRestaurant(result)}>
-                                    {/* TODO: Add icon based on restaurant type */}
                                     <div className='flex flex-row items-center p-2'>
                                         <div className="flex flex-col">
                                             <ListItemText primary={name} />
