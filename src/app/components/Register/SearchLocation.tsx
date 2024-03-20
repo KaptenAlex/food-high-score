@@ -24,7 +24,7 @@ export const SearchLocation = () => {
 
     return (
         <div className='w-full'>
-            <form action={searchAddress}>
+            <form className='flex flex-col gap-y-4' action={searchAddress}>
                 <Typography variant="h6">Search for restaurant</Typography>
                 <TextField
                     fullWidth

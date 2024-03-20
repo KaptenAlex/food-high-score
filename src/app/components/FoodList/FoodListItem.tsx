@@ -20,14 +20,18 @@ export const FoodListItem = (props: FoodListItemProps) => {
                 classes={{ content: "flex flex-row gap-x-2 items-center" }}
             >
                 <FoodIcon type={type} />
-                <Typography variant="subtitle1">#{rank} - </Typography>
-                <Typography variant="caption">{ranking.name} - {ranking.address.road}</Typography>
+                <Typography variant="body1">#{rank} - </Typography>
+                <Typography variant="body1">{ranking.name} - {ranking.address.road}</Typography>
             </AccordionSummary>
             <AccordionDetails classes={{ root: "flex flex-row justify-between gap-1 items-center" }}>
                 <Typography variant="body1">Number of votes: {nrOfVotes}</Typography>
                 <QRCode
                     size={50}
-                    style={{ height: "50px", maxWidth: "50px", width: "50px" }}
+                    style={{
+                        height: "50px",
+                        maxWidth: "50px",
+                        width: "50px"
+                    }}
                     value={qrCode}
                     viewBox="0 0 50 50"
                 />
